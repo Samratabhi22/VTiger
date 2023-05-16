@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RunSettings>
+	<!--Configuration elements-->
+	<ResultDirectory>.\TestResults</ResultDirectory>
+	<TargetFrameworkVersion>net6.0</TargetFrameworkVersion>
+	<TestAdaptersPaths>%SystemDrive%\Temp\foo;%SystemDrive%\Temp\bar</TestAdaptersPaths>
+	<MSTest>
+
+		<TestParameter>
+			<Parameter name="appurl" value="http://localhost:8084" />
+			<Parameter name="username" value="rmgyantra" />
+			<Parameter name="password" value="rmgy@9999"/>
+			
+		</TestParameter>
+
+	</MSTest>
+
+	<LoggerRunSettings>
+		<Loggers>
+			<Logger friendlyName="console" enabled="True">
+				<Configuration>
+					<Verbosity>quiet</Verbosity>
+				</Configuration>
+			</Logger>
+			<Logger friendlyName="trx" enabled="True">
+				<Configuration>
+					<LogFileName>foo.trx</LogFileName>
+				</Configuration>
+			</Logger>
+			<Logger friendlyName="html" enabled="True">
+				<Configuration>
+					<LogFileName>foo.html</LogFileName>
+				</Configuration>
+			</Logger>
+		</Loggers>
+	</LoggerRunSettings>
+
+</RunSettings>
