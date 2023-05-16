@@ -34,7 +34,7 @@ namespace VTiger.Generic
             sel.DeselectByIndex(ind);
         }
 
-        public void select(IWebDriver driver,IWebElement addofdd,string name)
+        public void select(IWebElement addofdd,string name)
         {
             SelectElement sel = new SelectElement(addofdd);
             sel.SelectByText(name);

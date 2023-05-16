@@ -25,7 +25,7 @@ namespace VTiger.Elements_repo
         [FindsBy(How = How.Name, Using = "createdBy")]
         private IWebElement projectmanagerTF;
 
-        [FindsBy(How=How.Name,Using = "status")]
+        [FindsBy(How=How.XPath,Using = "(//select[@name='status'])[2]")]
         private IWebElement statusDD;
 
         [FindsBy(How = How.XPath, Using = "//input[@type='submit']")]
@@ -39,23 +39,29 @@ namespace VTiger.Elements_repo
         
         public void CreateProjectmethod(String pname,string pmanager,WebdriverUtility util,string opt)
         {
-            createprojectBTN.Click();
-            BaseClass.extentTest1.Info("user click on the create project button"); 
-            projectnameTF.SendKeys(pname);
-            BaseClass.extentTest1.Info("user enter the projectname : " + pname);
-            
-            handleDisableelements.sendkeyfordisele(driver, teamsizeDTF,3);
-            String value =teamsizeDTF.GetAttribute("value");
-            BaseClass.extentTest1.Info("user enter the Teamsize : "+value);
-            
-            projectmanagerTF.SendKeys(pmanager);
-            BaseClass.extentTest1.Info("user enter the project manager name : "+pmanager);
-            
-            util.select(driver, statusDD, opt); 
-            BaseClass.extentTest1.Info("user selected the status : "+opt);
+            try
+            {
+                createprojectBTN.Click();
+                BaseClass.extentTest1.Info("user click on the create project button");
+                projectnameTF.SendKeys(pname);
+                BaseClass.extentTest1.Info("user enter the projectname : " + pname);
 
-            addprojectBTN.Click();
-            BaseClass.extentTest1.Info("user click on the AddProject Button");
+                handleDisableelements.sendkeyfordisele(driver, teamsizeDTF, 3);
+                String value = teamsizeDTF.GetAttribute("value");
+                BaseClass.extentTest1.Info("user enter the Teamsize : " + value);
+
+                projectmanagerTF.SendKeys(pmanager);
+                BaseClass.extentTest1.Info("user enter the project manager name : " + pmanager);
+                statusDD.Click();
+                util.select(statusDD, opt);
+                BaseClass.extentTest1.Info("user selected the status : " + opt);
+
+                addprojectBTN.Click();
+                BaseClass.extentTest1.Info("user click on the AddProject Button");
+            }catch (Exception e)
+            {
+                BaseClass.extentTest1.Fail(e);
+            }
 
 
         }

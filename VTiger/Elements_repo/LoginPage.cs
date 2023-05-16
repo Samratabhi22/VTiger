@@ -30,12 +30,18 @@ namespace VTiger.Elements_repo
 
         public void logintoapp(string un,string psw)
         {
-            usernameTF.SendKeys(un);
-            BaseClass.extentTest1.Info("User enters the valid username : "+un);
-            passwordTF.SendKeys(psw);
-            BaseClass.extentTest1.Info("User enters the valid password : " +psw);
-            signinBTN.Click();
-            BaseClass.extentTest1.Info("User click on signin");
+            try
+            {
+                usernameTF.SendKeys(un);
+                BaseClass.extentTest1.Info("User enters the valid username : " + un);
+                passwordTF.SendKeys(psw);
+                BaseClass.extentTest1.Info("User enters the valid password : " + psw);
+                signinBTN.Click();
+                BaseClass.extentTest1.Info("User click on signin");
+            }catch (Exception ex)
+            {
+                BaseClass.extentTest1.Fail(ex.Message);
+            }
         }
     }
 }
