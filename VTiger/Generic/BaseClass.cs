@@ -19,7 +19,11 @@ namespace VTiger.Generic
         public Excellutility eUtil=new Excellutility();
         public Csharputility cUtil=new Csharputility();
         public ExtentReportclass exReport=new ExtentReportclass();
-   
+        public static String username;
+        public static String password;
+        public static String p_name;
+        public static String pman_name;
+
         public TestContext TestContext { get; set; }
         public IWebDriver driver;
 
@@ -35,17 +39,25 @@ namespace VTiger.Generic
             htmlReporter1 = new ExtentHtmlReporter(Constantpaths.reportpath);
             htmlReporter1.Start();
             extentReports1.AttachReporter(htmlReporter1);
+ 
         }
 
 
         [TestInitialize]
         public void TestInitialize()
         {
+            username = eUtil.getavalue("login", "username");
+            password = eUtil.getavalue("login", "password");
+            p_name = eUtil.getavalue("project", "projectname");
+            pman_name = eUtil.getavalue("project", "projectmanager");
+
+            string url = eUtil.getavalue("login", "appurl");
+
             driver = new ChromeDriver();
             wUtil.maximizewindow(driver);
             extentTest1 = extentReports1.CreateTest(TestContext.TestName);
             //  string url =TestContext.Properties["appurl"].ToString();
-            string url = eUtil.getavalue("login", "appurl");
+           
             driver.Url = url;
             extentTest1.Info("application succesfully launched");
          

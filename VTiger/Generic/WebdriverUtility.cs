@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace VTiger.Generic
 {
@@ -36,9 +37,13 @@ namespace VTiger.Generic
         public void select(IWebDriver driver,IWebElement addofdd,string name)
         {
             SelectElement sel = new SelectElement(addofdd);
-            sel.DeselectByText(name);
+            sel.SelectByText(name);
         }
-
+        public void scrollintoview(IWebDriver driver,IWebElement element)
+        {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            js.ExecuteScript("arguments[0].scrollIntoView();", element);
+        }
         public static string TakeADefectSnap(IWebDriver driver)
         {
             ITakesScreenshot takesScreenshot = (ITakesScreenshot)driver;

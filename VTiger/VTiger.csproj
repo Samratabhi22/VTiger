@@ -457,9 +457,11 @@
     <Compile Include="Generic\Csharputility.cs" />
     <Compile Include="Generic\Excellutility.cs" />
     <Compile Include="Generic\ExtentReportclass.cs" />
+    <Compile Include="Generic\handleDisableelements.cs" />
     <Compile Include="Generic\WebdriverUtility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scripts\Script1.cs" />
+    <Compile Include="Scripts\script2.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

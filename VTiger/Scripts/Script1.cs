@@ -19,14 +19,12 @@ namespace VTiger.Scipts
             try
             {
                 LoginPage lp = new LoginPage(driver);
-                String username = eUtil.getavalue("login", "username");
-                String password = eUtil.getavalue("login", "password");
                 lp.logintoapp(username, password);
             }
             catch (Exception ex)
             {
-                extentTest1.Info(ex);
-                extentTest1.Fail("test failed");
+                extentTest1.Fail(ex);
+              
             }
         }
     }
