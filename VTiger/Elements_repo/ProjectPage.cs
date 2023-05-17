@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using VTiger.Generic;
 
 namespace VTiger.Elements_repo
@@ -58,7 +59,10 @@ namespace VTiger.Elements_repo
 
                 addprojectBTN.Click();
                 BaseClass.extentTest1.Info("user click on the AddProject Button");
-            }catch (Exception e)
+
+                Datavalidation.createdprojectvalidate(pname);
+            }
+            catch (Exception e)
             {
                 BaseClass.extentTest1.Fail(e);
             }

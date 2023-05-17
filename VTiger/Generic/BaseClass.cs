@@ -19,6 +19,7 @@ namespace VTiger.Generic
         public Excellutility eUtil=new Excellutility();
         public Csharputility cUtil=new Csharputility();
         public ExtentReportclass exReport=new ExtentReportclass();
+        public Datavalidation datavalidation=new Datavalidation();
         public static String username;
         public static String password;
         public static String p_name;

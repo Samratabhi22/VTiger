@@ -27,10 +27,12 @@ namespace VTiger.TestData
                 string name=p_name + cUtil.Randomnum();
                 string pname = pman_name + cUtil.Randomnum();
                 pp.CreateProjectmethod(name, pname, wUtil, "Created");
+              
             }
             catch (Exception ex)
             {
-                extentTest1.Fail(ex);
+                extentTest1.Fail(ex.Message);
+                extentTest1.Info(ex);
             }
         }
 
